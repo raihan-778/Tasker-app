@@ -10,6 +10,7 @@ Tasker helps you organize, search, and manage your daily tasks efficiently with 
 ### 🧱 Layout
 
 - **Header:** Clean navigation bar with app title or logo.
+- **Hero Section:** Advertisement about the app.
 - **Footer:** Compact footer for copyright or app version.
 - **Task Action:** Quick action button including ADD task Button to add new tasks with title, description, and optional tags or priority & & Delete All Button to delete all tasks at a time.
 - **Add Task Card:** Quick modal including form to add new tasks with title, description, and optional tags or priority.
