@@ -49,6 +49,16 @@ export default function TaskBoard() {
     //   [task.name]:task.value
     // })
   }
+  function handleDeleteTask(task) {
+    console.log("Task deleted:", task);
+
+    setTasks(tasks.filter((t) => t.id !== task.id));
+
+    // setEditTask  ({
+    //   ...task,
+    //   [task.name]:task.value
+    // })
+  }
 
   function onCloseModal() {
     setShowAddModal(false);
@@ -69,7 +79,11 @@ export default function TaskBoard() {
           <SearchBox />
           <div className="rounded-xl border border-[rgba(206,206,206,0.12)] bg-[#1D212B] px-6 py-8 md:px-9 md:py-16">
             <TaskActions handleAddClick={() => setShowAddModal(true)} />
-            <TaskList onEdit={handleEditTask} tasks={tasks} />
+            <TaskList
+              onEdit={handleEditTask}
+              onDelete={handleDeleteTask}
+              tasks={tasks}
+            />
           </div>
         </div>
       </section>
