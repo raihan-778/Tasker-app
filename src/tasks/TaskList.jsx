@@ -2,9 +2,9 @@
 
 import { FaStar } from "react-icons/fa";
 
-export default function TaskList({ tasks }) {
+export default function TaskList({ tasks, onEdit }) {
   return (
-    <div class="overflow-auto">
+    <div className="overflow-auto">
       <table className="table-fixed overflow-auto xl:w-full">
         <thead>
           <tr>
@@ -50,8 +50,8 @@ export default function TaskList({ tasks }) {
               </td>
               <td className="p-4 pb-8 text-sm font-semibold capitalize md:w-[350px]">
                 <ul className="flex justify-center gap-1.5 flex-wrap">
-                  {task.tags.map((tag) => (
-                    <li key={tag}>
+                  {task.tags.map((tag, i) => (
+                    <li key={i}>
                       <span className="inline-block h-5 whitespace-nowrap rounded-[45px] bg-[#00D991A1] px-2.5 text-sm capitalize text-[#F4F5F6]">
                         {tag}
                       </span>
@@ -66,7 +66,12 @@ export default function TaskList({ tasks }) {
               <td>
                 <div className="flex items-center justify-center space-x-3">
                   <button className="text-red-500">Delete</button>
-                  <button className="text-blue-500">Edit</button>
+                  <button
+                    onClick={() => onEdit(task)}
+                    className="text-blue-500"
+                  >
+                    Edit
+                  </button>
                 </div>
               </td>
             </tr>

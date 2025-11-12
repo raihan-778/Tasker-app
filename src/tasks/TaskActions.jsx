@@ -6,7 +6,7 @@ export default function TaskActions({ handleAddClick }) {
 
         <div className="flex items-center space-x-5">
           <button
-            onClick={() => handleAddClick()}
+            onClick={handleAddClick}
             className="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold"
           >
             Add Task
