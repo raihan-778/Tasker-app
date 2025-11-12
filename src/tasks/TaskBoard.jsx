@@ -49,15 +49,22 @@ export default function TaskBoard() {
     //   [task.name]:task.value
     // })
   }
-  function handleDeleteTask(task) {
-    console.log("Task deleted:", task);
+  function handleDeleteTask(taskId) {
+    console.log("Task deleted:", taskId);
 
-    setTasks(tasks.filter((t) => t.id !== task.id));
+    const tasksAfterDelete = tasks.filter((t) => t.id !== taskId);
+
+    setTasks(tasksAfterDelete);
 
     // setEditTask  ({
     //   ...task,
     //   [task.name]:task.value
     // })
+  }
+
+  function handleDeleteAll() {
+    tasks.length = 0;
+    setTasks([...tasks]);
   }
 
   function onCloseModal() {
@@ -78,7 +85,10 @@ export default function TaskBoard() {
         <div className="container">
           <SearchBox />
           <div className="rounded-xl border border-[rgba(206,206,206,0.12)] bg-[#1D212B] px-6 py-8 md:px-9 md:py-16">
-            <TaskActions handleAddClick={() => setShowAddModal(true)} />
+            <TaskActions
+              onAllDelete={handleDeleteAll}
+              handleAddClick={() => setShowAddModal(true)}
+            />
             <TaskList
               onEdit={handleEditTask}
               onDelete={handleDeleteTask}

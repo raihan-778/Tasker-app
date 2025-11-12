@@ -1,4 +1,4 @@
-export default function TaskActions({ handleAddClick }) {
+export default function TaskActions({ handleAddClick, onAllDelete }) {
   return (
     <>
       <div className="mb-14 items-center justify-between sm:flex">
@@ -11,7 +11,10 @@ export default function TaskActions({ handleAddClick }) {
           >
             Add Task
           </button>
-          <button className="rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold">
+          <button
+            onClick={onAllDelete}
+            className="rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold"
+          >
             Delete All
           </button>
         </div>

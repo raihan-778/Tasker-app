@@ -66,7 +66,7 @@ export default function TaskList({ tasks, onEdit, onDelete }) {
               <td>
                 <div className="flex items-center justify-center space-x-3">
                   <button
-                    onClick={() => onDelete(task)}
+                    onClick={() => onDelete(task.id)}
                     className="text-red-500"
                   >
                     Delete
