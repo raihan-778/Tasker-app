@@ -50,11 +50,20 @@ export default function TaskBoard() {
     // })
   }
 
+  function onCloseModal() {
+    setShowAddModal(false);
+    setTaskToEdit(null);
+  }
+
   return (
     <>
       <section className="mb-20" id="tasks">
         {showAddModal && (
-          <AddTaskModal taskToEdit={taskToEdit} onSave={handleAddTask} />
+          <AddTaskModal
+            taskToEdit={taskToEdit}
+            handleCloseClick={onCloseModal}
+            onSave={handleAddTask}
+          />
         )}
         <div className="container">
           <SearchBox />
