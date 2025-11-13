@@ -1,4 +1,13 @@
-export default function SearchBox() {
+import { useState } from "react";
+
+export default function SearchBox({ handleSearchTerm }) {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    handleSearchTerm(searchTerm);
+  };
+
   return (
     <>
       <div className="p-2 flex justify-end">
@@ -11,10 +20,14 @@ export default function SearchBox() {
                 className="z-20 block w-full bg-gray-800 px-4 py-2 pr-10 focus:outline-none"
                 placeholder="Search Task"
                 required
+                name="search-text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
               <button
                 type="submit"
                 className="absolute right-2 top-0 h-full rounded-e-lg text-white md:right-4"
+                onClick={handleSearch}
               >
                 <svg
                   className="h-4 w-4"
